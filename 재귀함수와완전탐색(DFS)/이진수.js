@@ -1,19 +1,23 @@
-/*
-  십진수를 이진수로 바꾸기
-*/
+// /*
+//   십진수를 이진수로 바꾸기
+// */
 
-const solution = function(number) {
+const binary = function(number) {
   let result = '';
-  function DFS(number) {
-    if (number === 0) {
+  const recur = function(recurNumber) {
+    if (recurNumber === 0) {
       return;
-    } else {
-      DFS(parseInt(number / 2));
-      result += number % 2;
     }
-  }
-  DFS(number);
+    recur(Math.floor(recurNumber / 2));
+    result += recurNumber % 2 // 0
+  } 
+  recur(number);
   return result;
-}
+};
 
-console.log(solution(11));
+console.log(binary(11))
+// recur(0) // return
+// recur(1) // 0
+// recur(2)
+// recur(5)
+// recur(10)
